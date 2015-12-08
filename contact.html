@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/text.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/960.css" />
+<link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
+<link href="css/galleria.css" rel="stylesheet" type="text/css" media="screen"> 
+
+<script type="text/javascript" src="jquery-1.2.6.min.js"></script> 
+<script type="text/javascript" src="jquery.galleria.js"></script> 
+<script type="text/javascript"> 
+jQuery(function($) { 
+
+$('ul.gallery').galleria({
+			history   : true, // activates the history object for bookmarking, back-button etc.
+			clickNext : true, // helper for making the image clickable
+			insert    : '#main_image', // the containing selector for our main image
+			onImage   : function(image,caption,thumb) { // let's add some image effects for demonstration purposes
+				
+				// fade in the image & caption
+				if(! ($.browser.mozilla && navigator.appVersion.indexOf("Win")!=-1) ) { // FF/Win fades large images terribly slow
+					image.css('display','none').fadeIn(1000);
+				}
+				caption.css('display','none').fadeIn(600);
+				
+				// fetch the thumbnail container
+				var _li = thumb.parents('li');
+				
+				// fade out inactive thumbnail
+				_li.siblings().children('img.selected').fadeTo(500,0.3);
+				
+				// fade in active thumbnail
+				thumb.fadeTo('fast',1).addClass('selected');
+				
+				// add a title for the clickable image
+				image.attr('title','Next image >>');
+			},
+			onThumb : function(thumb) { // thumbnail effects goes here
+				
+				// fetch the thumbnail container
+				var _li = thumb.parents('li');
+				
+				// if thumbnail is active, fade all the way.
+				var _fadeTo = _li.is('.active') ? '1' : '0.3';
+				
+				// fade in the thumbnail when finnished loading
+				thumb.css({display:'none',opacity:_fadeTo}).fadeIn(1000);
+				
+				// hover effects
+				thumb.hover(
+					function() { thumb.fadeTo('fast',1); },
+					function() { _li.not('.active').children('img').fadeTo('fast',0.3); } // don't fade out if the parent is active
+				)
+			}
+		});
+
+
+
+
+
+
+}); 
+</script>
+
+<style media="screen,projection" type="text/css">
+	
+	/* BEGIN DEMO STYLE */
+
+	.gallery li{width:80px;height:60px;border:3px double #111;margin: 0 2px;background:#000; float:left;}
+	.gallery {width:300px;}
+
+    </style>
+
+
+
+
+<title>Carlo & Mom's | Contact</title>
+</head>
+
+<body>
+
+
+<div class="container_12" id="topContent">
+    <div class="grid_4">
+            <h1>Contact</h1>
+            <h2>Carlo & Mom's Photo Gallery</h2>
+    </div>
+    <div class="grid_8" id="rightTopContent">
+            <a href="/images/index.html">Home</a> |
+            <a href="/images/gallery.html">Gallery</a> |
+            <a href="/images/contact.html">Contact</a>
+     </div>
+</div>
+
+
+    <div class="clear">&nbsp;</div>
+
+<div class="container_12">
+<div class="grid_4">    
+        <ul class="gallery"> 
+			<li class="active"><img src="./images/1.jpg" title="Carlo's 30th Bday" alt="1"></li> 
+            <li><img src="./images/2.jpg" title="Carlo & Mom" alt="2"></li> 
+            <li><img src="./images/3.jpg" title="Carlo's Birthday Turnover" alt="3"></li> 
+            <li><img src="./images/4.jpg" title="Carlo and Mom iPhone View" alt="4"></li> 
+            <li><img src="./images/5.jpg" title="The Family" alt="5"></li> 
+            <li><img src="./images/6.jpg" title="Welcome Back Carlo & Nice Stash" alt="6"></li> 
+            <li><img src="./images/7.jpg" title="Carlo's 30th Bday at The Improv" alt="7"></li> 
+            <li><img src="./images/8.jpg" title="Baby Carlo" alt="8"></li> 
+            <li><img src="./images/9.jpg" title="Carlo & Mommy Back In The Day" alt="9"></li> 
+            <li><img src="./images/10.jpg" title="Mom's Children" alt="10"></li> 
+            <li><img src="./images/11.jpg" title="Mothersday At The Cheesecake Factory" alt="11"></li> 
+            <li><img src="./images/12.jpg" title="Joey's 21st Birthday at the Improv" alt="12"></li> 
+		</ul>
+        
+	</div>
+	<!-- end .grid_4 -->
+	<div class="grid_8">
+
+			<div id="main_image"></div>
+	</div>
+    </div>
+    <div class="clear">&nbsp;</div>
+    <div class="container_16">
+    <div class="grid_2">
+		<p>&nbsp;</p>
+	</div>
+    
+      <div class="grid_12" id="galleryInformation">
+     
+   <h2>Contact Info.<h2><hr>
+
+<p align="center">
+  <b>Maria Madison</b><br>
+  <a href="https://www.facebook.com/marialynnmadison">Facebook</a> |
+  <a href="http://www.fratellosonline.com">Fratellos</a> |
+  <a href="http://mydoterra.com/mariamadison">My doTERRA</a>
+  <br><br>
+  <img src="https://dl.dropboxusercontent.com/u/200015521/Image%20URL%20Links/maria-pic.jpg">
+</p>
+   
+   <hr>
+   
+   <p align="center">
+  <b>Carlo Moscatiello</b><br>
+  <a href="http://www.facebook.com/CarloMoscatiello">Facebook</a> |
+  <a href="http://www.carlomoscatiello.com">Website</a> |
+  <a href="http://panoramio.com/user/cm85">Panoramio</a>
+  <br><br>
+  <img src="https://dl.dropboxusercontent.com/u/200015521/Image%20URL%20Links/Profice%20Pic.png">
+</p>
+    
+        <div class="grid_2">
+		<p>&nbsp;</p>
+	</div>
+    </div>
+</div>
+    
+</body>
+</html>
